@@ -21,7 +21,7 @@ We’ll cache the requests such that they can be displayed the next time if ther
 
 # Creating a cache
 ### Step 1 : Define a Class to Check for internet connectivity
-We first need to have a class in out app that checks for internet connectivity.
+We first need to have a class in our app that checks for internet connectivity.
 
 ```ruby
 public class MyApplication extends Application {
@@ -155,4 +155,4 @@ Now we need to add this OkHttpClient to our Retrofit instance. Here's how to do 
     }
 ```
 
-#Cappy Hodding
+# Cappy Hodding
