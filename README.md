@@ -133,26 +133,26 @@ This interceptor will be called ONLY if the network is available
 The following gist explains how to add this to our OkHttpClient, along with adding our cache :
 
 ```ruby
-    private static OkHttpClient okHttpClient(){
-        return new OkHttpClient.Builder()
+  OkHttpClient okHttpClient = new OkHttpClient.Builder()
                 .cache(cache())
-                .addInterceptor(httpLoggingInterceptor()) // used if network off OR on
-                .addNetworkInterceptor(networkInterceptor()) // only used when network is on
+                .connectTimeout(60, TimeUnit.SECONDS)
+                .readTimeout(60, TimeUnit.SECONDS)
+                .addInterceptor(makeLoggingInterceptor(true))
+                .addNetworkInterceptor(networkInterceptor())
                 .addInterceptor(offlineInterceptor())
                 .build();
-    }
 ```
 
 Now we need to add this OkHttpClient to our Retrofit instance. Here's how to do that :
 
 ```ruby
-  private static Retrofit retrofit(){
-        return new Retrofit.Builder()
+       api = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
-                .client(okHttpClient())
+                .client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create())
-                .build();
-    }
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .build()
+                .create(Api.class);
 ```
 
 # Cappy Hodding
