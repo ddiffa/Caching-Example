@@ -1,5 +1,9 @@
-# Caching-Example
-An example of how to use Retrofit2 to cache HTTP responses 
+
+Caching is a way of temporarily storing data fetched from a network on a device's storage, so that we can access it at a later time when the device is offline or if we want to access the same data again.
+In the following section, I’ll do a Retrofit Request with OkHttp as the Client and using RxJava.
+We’ll cache the requests such that they can be displayed the next time if there is no internet/problem in getting the latest request.
+
+I use several libraries in this project :
 
 ### Library
 - RxJava 
@@ -8,10 +12,6 @@ An example of how to use Retrofit2 to cache HTTP responses
 - Glide
 - Lombok
 - ButterKnife
-
-Caching is a way of temporarily storing data fetched from a network on a device's storage, so that we can access it at a later time when the device is offline or if we want to access the same data again.
-In the following section, I’ll do a Retrofit Request with OkHttp as the Client and using RxJava.
-We’ll cache the requests such that they can be displayed the next time if there is no internet/problem in getting the latest request.
 
 ### Benefits of Caching
 - Reduces bandwidth consumption
@@ -156,3 +156,5 @@ Now we need to add this OkHttpClient to our Retrofit instance. Here's how to do 
 ```
 
 # Cappy Hodding
+
+
